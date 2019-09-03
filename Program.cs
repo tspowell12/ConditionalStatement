@@ -30,10 +30,10 @@ namespace ConditionalStatement
                 // Creates the letter varialbe and assigns an initial value of "A"
                 string letter = "A";
 
-                /* This if/else statement is used to conditionally test the user's input
+                /* This IF/ELSE IF/ELSE statement is used to conditionally test the user's input
                    and assigns the corresponding value to the 'letter' variable
                  */
-                if (grade > 98)
+                if (grade >= 98)
                 {
                     letter = "A+";
                 }
@@ -81,59 +81,83 @@ namespace ConditionalStatement
                 {
                     letter = "D-";
                 }
-                else
+                else if ((grade >= 0) && (grade <= 59))
                 {
                     letter = "F";
                 }
+                else
+                {
+                    Console.WriteLine("Please input a positive value.");
+                }
 
-                /* This if/else statement is used to display a grammatically correct sentence
-                   using either 'a' or 'an'.
+                /* This IF/ELSE IF/ELSE statement is used to display a grammatically correct sentence
+                   using either 'a' or 'an'. There are also switch statements embedded within
+                   the 'else if' section.
                  */
-                if (grade >= 90)
+                if (grade > 100)
                 {
                     Console.WriteLine("Your grade is an " + letter + ".");
+                    Console.WriteLine("Wow extra credit! Fantastic job!");
+                    Console.WriteLine("Press any key to exit the program...");
+                    Console.ReadKey(true);
+                }
+                else if ((grade >= 90) && (grade <= 100))
+                {
+                    Console.WriteLine("Your grade is an " + letter + ".");
+                    Console.WriteLine("Keep up the good work!");
+                    Console.WriteLine("Press any key to exit the program...");
+                    Console.ReadKey(true);
                 }
                 else if ((grade >= 60) && (grade <= 89))
                 {
                     Console.WriteLine("Your grade is a " + letter + ".");
+                    switch (letter)
+                    {
+                        case "B+":
+                        case "B":
+                        case "B-":
+                            Console.WriteLine("Nice work. Try turning that B into an A.");
+                            Console.WriteLine("Press any key to exit the program...");
+                            Console.ReadKey(true);
+                            break;
+                        case "C+":
+                        case "C":
+                        case "C-":
+                            Console.WriteLine("C's get degrees but try putting in a few more " +
+                                              "study hours each week to bump up your grade.");
+                            Console.WriteLine("Press any key to exit the program...");
+                            Console.ReadKey(true);
+                            break;
+                        case "D+":
+                        case "D":
+                        case "D-":
+                            Console.WriteLine("Try using the additional resources available " +
+                                                "on Canvas. You can do this!");
+                            Console.WriteLine("Press any key to exit the program...");
+                            Console.ReadKey(true);
+                            break;
+                    }
                 }
-                else
+                else if ((grade >= 0) && (grade <= 59))
                 {
                     Console.WriteLine("Your grade is an " + letter + ".");
-                }
-
-                /* This if/else statement is used to display a personalized message
-                   depending on the letter grade.
-                 */
-                if (grade >= 90)
-                {
-                    Console.WriteLine("Keep up the good work!");
-                }
-                else if ((grade >= 80) && (grade <= 89))
-                {
-                    Console.WriteLine("Nice work. Try turning that B into an A.");
-                }
-                else if ((grade >= 70) && (grade <= 79))
-                {
-                    Console.WriteLine("C's get degrees but try putting in a few more study " +
-                                      "hours each week to bump up your grade.");
-                }
-                else if ((grade >= 60) && (grade <= 69))
-                {
-                    Console.WriteLine("Try using the addtional resources available on Canvas." +
-                                        " You can do this!");
+                    Console.WriteLine("It will take hard work to increase this grade" +
+                                        " but it is not impossible. Try using the available" +
+                                        " office hours and start studying more in the library.");
+                    Console.WriteLine("Press any key to exit the program...");
+                    Console.ReadKey(true);
                 }
                 else
                 {
-                    Console.WriteLine("It will take hard work to increase this grade" +
-                                        " but it is not impossible. Try using the available" +
-                                        " office hours and start studying more in the library." );
+                    Console.WriteLine("Negative numbers are not allowed.");
+                    Console.WriteLine("Press any key to exit the program and try again...");
+                    Console.ReadKey(true);
                 }
 
             } // end of try
             catch
             {
-                Console.WriteLine("Please use an int data type for your grade next time");
+                Console.WriteLine("Please use an int data type for your grade next time.");
                 Console.WriteLine("Press any key to exit the program and try again...");
             } // end of catch
         } // end of Main
