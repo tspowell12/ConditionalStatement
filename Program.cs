@@ -17,6 +17,7 @@ namespace ConditionalStatement
             // Asks the user for input
             Console.WriteLine("What grade do you expect to get in ISM 4300?");
 
+            //Use the try catch block to validate user input
             try
             {
                 // This varialbe will gather the user input
@@ -92,13 +93,14 @@ namespace ConditionalStatement
 
                 /* This IF/ELSE IF/ELSE statement is used to display a grammatically correct sentence
                    using either 'a' or 'an'. There are also switch statements embedded within
-                   the 'else if' section.
+                   the 2nd 'else if' section.
                  */
                 if (grade > 100)
                 {
                     Console.WriteLine("Your grade is an " + letter + ".");
                     Console.WriteLine("Wow extra credit! Fantastic job!");
                     Console.WriteLine("Press any key to exit the program...");
+                    // Console.ReadKey(true) pauses the program until the user presses a key
                     Console.ReadKey(true);
                 }
                 else if ((grade >= 90) && (grade <= 100))
@@ -106,6 +108,7 @@ namespace ConditionalStatement
                     Console.WriteLine("Your grade is an " + letter + ".");
                     Console.WriteLine("Keep up the good work!");
                     Console.WriteLine("Press any key to exit the program...");
+                    // Console.ReadKey(true) pauses the program until the user presses a key
                     Console.ReadKey(true);
                 }
                 else if ((grade >= 60) && (grade <= 89))
@@ -118,6 +121,7 @@ namespace ConditionalStatement
                         case "B-":
                             Console.WriteLine("Nice work. Try turning that B into an A.");
                             Console.WriteLine("Press any key to exit the program...");
+                            // Console.ReadKey(true) pauses the program until the user presses a key
                             Console.ReadKey(true);
                             break;
                         case "C+":
@@ -145,12 +149,14 @@ namespace ConditionalStatement
                                         " but it is not impossible. Try using the available" +
                                         " office hours and start studying more in the library.");
                     Console.WriteLine("Press any key to exit the program...");
+                    // Console.ReadKey(true) pauses the program until the user presses a key
                     Console.ReadKey(true);
                 }
                 else
                 {
                     Console.WriteLine("Negative numbers are not allowed.");
                     Console.WriteLine("Press any key to exit the program and try again...");
+                    // Console.ReadKey(true) pauses the program until the user presses a key
                     Console.ReadKey(true);
                 }
 
